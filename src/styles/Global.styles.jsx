@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     text-transform: uppercase;
-    font-family: "Almendra Display", serif;
+    font-family: "Shanti", sans-serif;
 }
 body {
     font-size: 1.5rem;

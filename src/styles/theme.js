@@ -13,7 +13,7 @@ export const lightTheme = {
         headerFromColor: "rgba(15, 63, 42, 0.36)",
         
     },
-    screen: {
+    screens: {
         lg: "992px",
     },
 };

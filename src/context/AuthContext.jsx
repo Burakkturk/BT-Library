@@ -8,7 +8,7 @@ const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
 
-  const [user, setUser] = useState("light");
+  const [user, setUser] = useState(false);
 
   const values = { user, setUser };
 
