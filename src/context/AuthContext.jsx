@@ -1,5 +1,6 @@
 // Auth Context
 
+import { useEffect } from "react";
 import { createContext, useState, useContext } from "react";
 
 
@@ -8,7 +9,12 @@ const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
 
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(sessionStorage.getItem("user") || false);
+
+
+  useEffect(() => {
+    sessionStorage.setItem("user", user)
+  }, [user]);
 
   const values = { user, setUser };
 
