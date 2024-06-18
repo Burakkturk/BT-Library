@@ -19,7 +19,7 @@ color: ${({theme}) => theme.colors.detailColor};
 
 export const HeaderForm = styled.form`
   display: flex;
-  width: 45%;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 16px;
