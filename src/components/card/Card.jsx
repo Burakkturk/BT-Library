@@ -1,9 +1,26 @@
-import React from 'react'
-
-const Card = () => {
+import React from "react";
+import { CardContainer } from "../../pages/home/Home.style";
+import { CardHeader, CardButton, CardMedia } from "./Card.style";
+import defaultImg from "../../assets/book.jpg";
+import { useNavigate } from "react-router-dom";
+const Card = ({ item }) => {
+  const { volumeInfo } = item;
+  const navigate = useNavigate();
   return (
-    <div>Card</div>
-  )
-}
+    <CardContainer>
+      <CardHeader>{volumeInfo.title}</CardHeader>
+      <CardMedia
+        src={volumeInfo?.imageLinks?.smallThumbnail || defaultImg}
+        alt={volumeInfo?.title}
+        title={volumeInfo?.title}
+      />
+      <CardButton
+        onClick={() => navigate(`/detail/${item.id}`, { state: item })}
+      >
+        Viev More
+      </CardButton>
+    </CardContainer>
+  );
+};
 
-export default Card
+export default Card;

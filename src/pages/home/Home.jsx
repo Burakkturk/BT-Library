@@ -12,7 +12,7 @@ const Home = () => {
       <Header />
 
       {myData.length ? (
-        <CardContainer>
+        <CardContainer wrap="wrap">
           {myData.map((item) => (
             <Card key={item.id} item={item} />
           ))}
