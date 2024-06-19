@@ -1,22 +1,29 @@
-import React from 'react'
-import { CardContainer, HomeContainer, HomeImage } from './Home.style'
-import Card from '../../components/card/Card'
-import Header from '../../components/header/Header'
-import homeImg from "../../assets/books.jpg"
+import React from "react";
+import { CardContainer, HomeContainer, HomeImage } from "./Home.style";
+import Card from "../../components/card/Card";
+import Header from "../../components/header/Header";
+import homeImg from "../../assets/books.jpg";
+import { useBooksContext } from "../../context/BooksContext";
 
 const Home = () => {
+  const { myData } = useBooksContext();
   return (
     <HomeContainer>
-      <Header/>
-      <HomeImage>
-        <img src={homeImg} alt='Home'/>
+      <Header />
 
-      </HomeImage>
-      <CardContainer>
-        <Card/>
-      </CardContainer>
+      {myData.length ? (
+        <CardContainer>
+          {myData.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
+        </CardContainer>
+      ) : (
+        <HomeImage>
+          <img src={homeImg} alt="Home" />
+        </HomeImage>
+      )}
     </HomeContainer>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

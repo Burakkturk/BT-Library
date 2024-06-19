@@ -2,33 +2,36 @@
 
 import { useEffect } from "react";
 import { createContext, useState, useContext } from "react";
-
+import axios from "axios";
 
 const BooksContext = createContext();
 
-
 const BooksContextProvider = ({ children }) => {
-    const [query, setQuery] = useState("")
-    const [selectType, setSelectType] = useState("all")
-    const [myData, setMyData] = useState([])
+  // const [query, setQuery] = useState("");
+  // const [selectType, setSelectType] = useState("all");
+  const [searchInfo, setSearchInfo] = useState({
+    query:"",
+    selectType:"all"
+  });
+  const [myData, setMyData] = useState([]);
 
-    const getData = async () => {
-try {
-    const {data} = await axios(url)
-} catch (error) {
-    
-}
+  const APP_KEY =process.env.REACT_APP_apiKey
+  console.log(APP_KEY)
 
-    }
-
-
-  
-const values = {myData,setMyData}
+  const getData = async () => {
+    // const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${selectType}&key=${APP_KEY}`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${searchInfo.query}&printType=${searchInfo.selectType}&key=${APP_KEY}`;
+    try {
+      const { data } = await axios(url);
+      console.log(data)
+      setMyData(data.items)
+    } catch (error) {}
+  };
+  const values = { myData, setMyData, getData, searchInfo, setSearchInfo };
   return (
     <BooksContext.Provider value={values}>{children}</BooksContext.Provider>
   );
 };
-
 
 export const useBooksContext = () => {
   return useContext(BooksContext);
