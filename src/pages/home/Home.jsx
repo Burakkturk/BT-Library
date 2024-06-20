@@ -1,7 +1,7 @@
 import React from "react";
-import { CardContainer, HomeContainer, HomeImage } from "./Home.style";
-import Card from "../../components/card/Card";
 import Header from "../../components/header/Header";
+import Card from "../../components/card/Card";
+import { CardContainer, HomeContainer, HomeImage } from "./Home.style";
 import homeImg from "../../assets/books.jpg";
 import { useBooksContext } from "../../context/BooksContext";
 
@@ -10,10 +10,9 @@ const Home = () => {
   return (
     <HomeContainer>
       <Header />
-
       {myData.length ? (
         <CardContainer wrap="wrap">
-          {myData.map((item) => (
+          {myData.map(item => (
             <Card key={item.id} item={item} />
           ))}
         </CardContainer>

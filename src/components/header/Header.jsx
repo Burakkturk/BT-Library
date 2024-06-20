@@ -16,16 +16,16 @@ const Header = () => {
   const handleChange = e => {
     console.log(e.target);
     console.log(e.target.name);
-    console.log({[e.target.name]: e.target.value});
-    setSearchInfo({...searchInfo, [e.target.name]: e.target.value})
-  }
-const handleSubmit = e => {
-  e.preventDefault();
-  getData();
-
-
-    console.log(searchInfo)
+    console.log({ [e.target.name]: e.target.value });
+    setSearchInfo({ ...searchInfo, [e.target.name]: e.target.value }); // inputun name attr ile statede ki key isimleri aynı olmak zorunda.
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    getData();
+  };
+
+  console.log(searchInfo);
   return (
     <HeaderContainer>
       <HeaderTitle>BOOKS OR MAGAZINES</HeaderTitle>
@@ -36,10 +36,13 @@ const handleSubmit = e => {
           name="query"
           value={searchInfo.query}
           onChange={handleChange}
-          // onChange={() => setSearchInfo({...searchInfo, query:e.target.value})}
+          // onChange={()=> setSearchInfo({...searchInfo, query:e.target.value})}
           required
         />
-        <SelectBox value={searchInfo.selectType} name="selectType" onChange={handleChange}>
+        <SelectBox
+          value={searchInfo.selectType}
+          name="selectType"
+          onChange={handleChange}>
           {printType.map(item => (
             <option key={item} value={item}>
               {item}
