@@ -2,7 +2,7 @@
 
 ## Description
 Thanks to visit my Github! In this project, i used React-Context. This project is created with React, Bootstrap, axios, React-Router, Private-Router. Here is the website link for this project (https://precious-crepe-6b1681.netlify.app/)
-Project aims to create a Nba Legends App. 
+Project aims to create a BT Library App. 
 
 ## Output
 
