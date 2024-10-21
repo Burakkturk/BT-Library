@@ -6,7 +6,7 @@ Project aims to create a BT Library App.
 
 ## Output
 
-![NBA-LEGENDS-APP](./BT-Library.gif)
+![BT-Library](./BT-Library.gif)
 
 ### At the end of the project, following topics are to be covered;
 
